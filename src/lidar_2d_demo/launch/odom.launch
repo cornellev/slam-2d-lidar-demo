@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find lidar_2d_demo)/launch/static_transforms.launch" />
+  
+  <node ns="/rtabmap/odom/" name="lidar_odometry" pkg="rtabmap_odom" type="icp_odometry">
+    <remap from="/rtabmap/odom/scan" to="/scan" />
+    <remap from="/rtabmap/odom/scan_cloud" to="/dummy" />
+  </node>
+</launch>
