@@ -5,6 +5,8 @@ A SLAM demo using the RTABmap package and RPLidar
 
 `git clone --recurse-submodules https://github.com/cornellev/slam-2d-lidar-demo.git`
 
+(Make sure to clone submodules)
+
 ## Running RPLidar
 
 Give permissions to the RPLidar
@@ -51,6 +53,10 @@ The /odom data and the /scan data are fed into the rtabmap_slam package. The nod
 
 [rtabmap_ros documentation](http://wiki.ros.org/rtabmap_slam)
 
+## Bag Files
+
+[Mapping ELL workspace / hallway](https://drive.google.com/file/d/1LOp4zhcIXm-IjB1JhrdJo5Z-l5ldpCAE/view?usp=sharing)
+
 ## Notes
 
 There are a lot of parameters in RTABmap and learning more of them will help tuning, debugging, and improving performance.
@@ -58,3 +64,5 @@ There are a lot of parameters in RTABmap and learning more of them will help tun
 Another common issue is that when the odometry node cannot caluclate the transformation, it sends a null transform. This breaks everything that relies on the transform (the slam package). I can experiment with the `publish_null_when_lost` parameter of rtabmap_odom.
 
 There may be better packages for doing LiDAR only mapping (e.g. gmapping).
+
+I'd like to be able to recreate results in simulation (e.g. go from simulated lidar data to map), but have been unable to because of issues with timing and transforms (e.g. a transform doesn't exist a certain time, this may be able to be fixed with using tf2).
